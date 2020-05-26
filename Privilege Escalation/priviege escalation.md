@@ -1,7 +1,7 @@
 # /user/adv.php
 version: zzcms201910
 This is an interface that allows you to modify the content and images of your ads.
-![]()
+![](https://github.com/Ling-Yizhou/zzcms-vuln/raw/master/img/adv.png)
 
 Use the following code to verify whether the user is logged in
 ```
@@ -49,6 +49,7 @@ whithout `PassWord`, only codes in `if` will be executed. However, codes in `if`
 
 
 For example, if we post like this
-![]()
+![](https://github.com/Ling-Yizhou/zzcms-vuln/find/master)
 
 we can change `advlink` of user `test` to arbitrary url even if we didn't log in, which can leads to csrf.
+![](https://github.com/Ling-Yizhou/zzcms-vuln/raw/master/img/csrf2.png)
