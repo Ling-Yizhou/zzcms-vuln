@@ -49,7 +49,7 @@ whithout `PassWord`, only codes in `if` will be executed. However, codes in `if`
 
 
 For example, if we post like this
-![](https://github.com/Ling-Yizhou/zzcms-vuln/find/master)
+![](https://github.com/Ling-Yizhou/zzcms-vuln/raw/master/img/csrf.png)
 
 we can change `advlink` of user `test` to arbitrary url even if we didn't log in, which can leads to csrf.
 ![](https://github.com/Ling-Yizhou/zzcms-vuln/raw/master/img/csrf2.png)
