@@ -172,5 +172,4 @@ for uid in range(1, 10):
 print(result)
 ```
 Results
-
-![](https://img2020.cnblogs.com/blog/1270588/202005/1270588-20200527003511095-404803236.png)
+![](https://raw.githubusercontent.com/Ling-Yizhou/zzcms-vuln/master/img/sqli.png)
