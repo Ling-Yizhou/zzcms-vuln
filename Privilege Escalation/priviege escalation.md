@@ -45,7 +45,7 @@ which means if the attacker submits cookies like
 ```
 UserName=foo
 ```
-whithout `PassWord`, only codes in `if` will be executed. However, codes in `if` merely echo javascript to html. As a result, the rest of codes in `adv.php` which use parameter `$_COOKIE["UserName"]` will still be executed.
+without `PassWord`, only codes in `if` will be executed. However, codes in `if` merely echo javascript to html. As a result, the rest of codes in `adv.php` which use parameter `$_COOKIE["UserName"]` will still be executed.
 
 
 For example, if we post like this
