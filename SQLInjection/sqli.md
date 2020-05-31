@@ -1,6 +1,6 @@
 # /user/top.php
 First we can find sql operation in `/user/top.php`
-```
+```php
 function ShowUserSf(){
 	if ($_COOKIE["UserName"]<>"" ){
 		$sql="select groupname,grouppic from zzcms_usergroup where groupid=(select groupid from zzcms_user where username='".$_COOKIE["UserName"]."')";
@@ -35,21 +35,16 @@ echo $str;
 
 It seems vulnerable to boolean based blind sql injection since parameter `$_COOKIE["UserName"]` is not filterd
 
-![]()
-
 By finding usage, we can find `/user/ask.php` is one of pages who include `/user/top.php` 
 
-```
+```php
 <?php
 include("top.php");
 ?>
-...
-
-}
 ```
 
 In `/user/ask.php`
-```
+```php
 <?php
 include("../inc/conn.php");
 include("check.php");
@@ -57,7 +52,7 @@ include("check.php");
 ```
 
 `check.php` is used to check whether visitor has logged in
-```
+```php
 <?php
 if (!isset($_COOKIE["UserName"]) || !isset($_COOKIE["PassWord"])){
     echo "<script>location.href='/user/login.php';</script>";
@@ -69,12 +64,12 @@ if (!isset($_COOKIE["UserName"]) || !isset($_COOKIE["PassWord"])){
 if the attacker submits cookies like `Cookie: UserName=foo`, without `PassWord`, only codes in `if` will be executed. However, codes in `if` merely echo javascript to html. As a result, the rest of codes in `ask.php` which use parameter `$_COOKIE["UserName"]` will still be executed.
 
 In `/inc/conn.php`, we can find
-```
+```php
 include(zzcmsroot."/inc/stopsqlin.php");
 ```
 
 and in `/inc/stopsqlin.php`
-```
+```php
 function stopsqlin($str){
 if(!is_array($str)) {//有数组数据会传过来比如代理留言中的省份$_POST['province'][$i]
 	$str=strtolower($str);//否则过过滤不全
@@ -103,7 +98,7 @@ foreach ($_REQUEST as $request_key=>$request_var){ stopsqlin($request_var);	}/* 
 ```
 which means all parameters in `$_GET`, `$_POST`, `$_COOKIE`, `$_REQUEST` are filterd while blacklist--`stopwords` is defined in `/inc/config.php`
 
-```
+```php
 define('stopwords','select|update|and|or|delete|insert|truncate|char|into|iframe|script|得普利麻|易瑞沙|益赛普|赫赛汀|日达仙|百泌达|多吉美|拜科奇|赛美维|施多宁|派罗欣|妥塞敏|格列卫|特罗凯|手机窃听器|手枪') ;//网站禁用关键字
 ```
 
@@ -132,7 +127,7 @@ Cookie: UserName=' || '1'='1'#
 
 
 # exp
-```
+```python3
 import requests
 import string
 
