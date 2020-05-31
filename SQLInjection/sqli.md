@@ -109,7 +109,7 @@ define('stopwords','select|update|and|or|delete|insert|truncate|char|into|iframe
 
 Although we can't use `select` and `or`, we can still query in the same table `zzcms_user`
 
-![]()
+![](https://raw.githubusercontent.com/Ling-Yizhou/zzcms-vuln/master/img/columns.png)
 
 # POC
 ```
@@ -125,8 +125,8 @@ Cookie: UserName=' || '1'='1'#
 ```
 
 
-![](https://img2020.cnblogs.com/blog/1270588/202005/1270588-20200527003445505-1868409938.png)
-![](https://img2020.cnblogs.com/blog/1270588/202005/1270588-20200527003453343-2101597065.png)
+![](https://raw.githubusercontent.com/Ling-Yizhou/zzcms-vuln/master/img/boolture.png)
+![](https://raw.githubusercontent.com/Ling-Yizhou/zzcms-vuln/master/img/boolfalse.png)
 
 
 
